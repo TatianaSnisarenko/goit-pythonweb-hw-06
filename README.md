@@ -52,10 +52,11 @@ python seed.py
 
 ### Step 5: Run Select Queries
 
-You can execute predefined select queries from `my_select.py` using the following command:
+You can execute predefined select queries from `my_select.py` and `my_select_additional.py` using the following command:
 
 ```sh
 python my_select.py
+python my_select_additional.py
 ```
 
 This will run the queries and display the results.
@@ -66,4 +67,5 @@ To run the test suite, use:
 
 ```sh
 python -m unittest discover -s test -p "test_my_select.py"
+python -m unittest discover -s test -p "test_my_select_additional.py"
 ```
