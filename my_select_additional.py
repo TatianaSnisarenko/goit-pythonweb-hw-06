@@ -68,15 +68,21 @@ if __name__ == "__main__":
     avg_grade = select_average_grade_teacher_to_student(
         session, teacher_name, student_name
     )
-    print(f"{avg_grade:.2f}")
+    if avg_grade is None:
+        print("No grades found.")
+    else:
+        print(f"{avg_grade:.2f}")
 
     print(
         f"\nGrades of students in group: {group_name} for subject: {subject_name} on the last lesson:"
     )
 
     grades = select_grades_last_lesson(session, group_name, subject_name)
-    for grade in grades:
-        grade_id, student_name, subject_name, grade_value, date_received = grade
-        print(
-            f"Student: {student_name}, Subject: {subject_name}, Grade: {grade_value}, Date: {date_received}"
-        )
+    if not grades:
+        print("No grades found.")
+    else:
+        for grade in grades:
+            grade_id, student_name, subject_name, grade_value, date_received = grade
+            print(
+                f"Student: {student_name}, Subject: {subject_name}, Grade: {grade_value}, Date: {date_received}"
+            )
